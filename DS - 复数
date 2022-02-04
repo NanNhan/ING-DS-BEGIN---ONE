@@ -1,0 +1,43 @@
+#include<stdio.h>
+typedef struct{
+	float realpart;
+	float imagpart;
+}Complex;
+void assign(Complex *A,float real,float imag)//赋值
+{
+	A -> realpart = real;//虚部赋值
+	A -> imagpart = imag;
+}
+void add(Complex *c,Complex A,Complex B)//相加
+{
+	c -> realpart = A.realpart + B.realpart;//Complex是我们定义的一个结构体类型
+	c -> imagpart = A.imagpart + B.imagpart;//带*:指针变量，它是指向Ccomplex类型的指针;不带*:Complex类型的普通变量
+}
+void minus(Complex *d,Complex A,Complex B)//相减
+{
+	d -> realpart = A.realpart - B.realpart;
+	d -> imagpart = A.imagpart - B.imagpart;
+}
+void multiply(Complex *e,Complex A,Complex B)
+{
+	e -> realpart = A.realpart * B.realpart;
+	e -> imagpart = A.realpart * B.imagpart;
+}
+void divide(Complex *f,Complex A,Complex B)
+{
+	f->realpart = A.realpart / B.realpart;
+	f->imagpart = A.imagpart / B.imagpart;
+}
+int main()
+{
+	Complex z1,z2,z3,z4,z;
+	//Complex GetImag,GetReal;
+	float RealPart,ImagPart;
+	assign(&z1,8.0,6.0);
+	assign(&z2,4.0,3.0);
+	add(&z3,z1,z2);
+	multiply(&z4,z1,z2);
+	divide(&z,z4,z3);
+	printf("realpart = %f /imagpart = %f", z.realpart,z.imagpart);
+	return 0;
+}
